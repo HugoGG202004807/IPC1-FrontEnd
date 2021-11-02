@@ -1,0 +1,1028 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+
+    <title>Clase 14 - Frontend</title>
+
+
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet"
+        type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" type="text/css" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="css/styles.css" rel="stylesheet" />
+
+    <style>
+        input.largerCheckbox {
+            width: 25px;
+            height: 25px;
+        }
+    </style>
+
+
+    <style>
+        /* The Modal (background) */
+        .modal {
+            display: none;
+            /* Hidden by default */
+            position: fixed;
+            /* Stay in place */
+            z-index: 1;
+            /* Sit on top */
+            padding-top: 90px;
+            /* Location of the box */
+            padding-left: 200px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            /* Full width */
+            height: 100%;
+            /* Full height */
+            overflow: auto;
+            /* Enable scroll if needed */
+            background-color: rgb(0, 0, 0);
+            /* Fallback color */
+            background-color: rgba(0, 0, 0, 0.4);
+            /* Black w/ opacity */
+        }
+
+        /* Modal Content */
+        .modal-content {
+            position: relative;
+            background-color: #fefefe;
+            margin: auto;
+            padding: 0;
+            border: 1px solid #888;
+            width: 80%;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            -webkit-animation-name: animatetop;
+            -webkit-animation-duration: 0.4s;
+            animation-name: animatetop;
+            animation-duration: 0.4s
+        }
+
+        /* Add Animation */
+        @-webkit-keyframes animatetop {
+            from {
+                top: -300px;
+                opacity: 0
+            }
+
+            to {
+                top: 0;
+                opacity: 1
+            }
+        }
+
+        @keyframes animatetop {
+            from {
+                top: -300px;
+                opacity: 0
+            }
+
+            to {
+                top: 0;
+                opacity: 1
+            }
+        }
+
+        /* The Close Button */
+        .close {
+            color: white;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+
+
+        .modal-header {
+            padding: 2px 16px;
+            background-color: #457de4;
+            color: white;
+        }
+
+        .modal-body {
+            padding: 2px 16px;
+        }
+
+        .modal-footer {
+            padding: 2px 16px;
+            background-color: #5cb85c;
+            color: white;
+        }
+    </style>
+
+
+
+
+</head>
+
+<body onload=" TablaPendientes() ">
+
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
+        <a class="navbar-brand js-scroll-trigger" href="#page-top">
+
+            <span class="d-block d-lg-none">Clarence Taylor</span>
+            <span class="d-none d-lg-block"><img class="img-fluid img-profile rounded-circle mx-auto mb-2"
+                    src="../imagenes/perfildoc.png" alt="" /></span>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span
+                class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <h3> <label for="" id="nombreingreso" style="color: black; size: 40px;"></label></h3> 
+                  </li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">Bienvenidos</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#experience">Citas Pendientes</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#skills">Citas Completadas</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#education">Generar Receta</a>
+                </li>
+                <li class="nav-item">
+                    <button type="button" class="btn btn-success" onclick="EditarP()">
+                        Editar Perfil</button>
+                </li>
+                </li>
+                <br>
+                <li class="nav-item">
+                    <button type="button" class="btn btn-danger" onclick="BtnSalir()">
+                        Cerrar Sesión</button>
+                </li>
+
+                <!--   <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#interests">Interests</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#awards">Awards</a></li> -->
+            </ul>
+        </div>
+    </nav>
+    <!-- Page Content-->
+    <div class="container-fluid p-0">
+
+
+        <!-- About-->
+        <div class="portada">
+
+            <section class="resume-section" id="about">
+                <div class="resume-section-content">
+                    <h1 class="mb-0">
+
+                        <img src="../imagenes/logoh.jfif" width="190" height="190" />
+                    </h1>
+                    <br>
+                    <div>
+                        <h1 style="color: rgb(245, 245, 238);"> Bienvenido a la Familia <h1
+                                style="color: rgb(3, 3, 3);">UHospital </h1>
+                        </h1>
+                        <img src="../imagenes/logoh1.jfif" width="250" height="60" />
+                    </div>
+
+                    <h3 style="color: rgb(0, 0, 0);">Donde quiera que se ama el arte de la medicina se ama también a la
+                        humanidad</h3>
+                    <div class="social-icons">
+                        <a class="social-icon" href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a class="social-icon" href="#"><i class="fab fa-github"></i></a>
+                        <a class="social-icon" href="#"><i class="fab fa-twitter"></i></a>
+                        <a class="social-icon" href="#"><i class="fab fa-facebook-f"></i></a>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <hr class="m-0" />
+        <!-- Experience-->
+        <div class="portada1">
+            <section class="resume-section" id="experience">
+                <div class="resume-section-content">
+                    <h2 class="mb-5">Citas Pendientes</h2>
+                    <!--CITAS XD-->
+
+                    <div style="width:100%; padding-left: 5px; padding-right: 5x;">
+
+
+                        <table class="table table-bordred table-striped" , id="tablaMedi" , style="width:100%">
+                            <thead align="center">
+                                <tr class="table-info">
+                                    <th>Paciente</th>
+                                    <th>Fecha</th>
+                                    <th>Hora</th>
+                                    <th>Motivo</th>
+                                    <th>Verificar Cita</th>
+
+                                </tr>
+                            </thead>
+
+                            <tbody id="tablacita"></tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </section>
+        </div>
+        <hr class="m-0" />
+        <div class="portada2">
+            <section class="resume-section" id="skills">
+                <div class="resume-section-content">
+                    <h2 style="color: rgb(33, 8, 255)">Citas Aignadas</h2>
+
+                    <div>
+
+
+                        <table class="table table-bordred table-striped" , id="tablaMedi" , style="width:100%">
+                            <thead align="center">
+                                <tr class="table-info">
+                                    <th>Paciente</th>
+                                    <th>Fecha</th>
+                                    <th>Hora</th>
+                                    <th>Motivo</th>
+                                    <th>Completado</th>
+
+                                </tr>
+                            </thead>
+
+                            <tbody id="tablaacep"></tbody>
+                        </table>
+
+
+
+                    </div>
+                    <img src="../imagenes/logoh.jfif" width="120" height="120" />
+                </div>
+            </section>
+        </div>
+
+
+
+        <hr class="m-0" />
+        <!-- Education-->
+        <div class="portada3">
+            <section class="resume-section" id="education">
+                <div
+                    style="width: 40%; padding-right: 20px; padding-left: 20px; float: left; background-color: rgb(255, 255, 255)">
+                    <br>
+                    <form>
+                        <div class="mb-3">
+                            <h3 align="center">Recetas UHospital</h3>
+                            <br>
+                            <h4 align="left">Fecha Generación</h4>
+                            <input type="date" placeholder="día/mes/año" class="form-control" id="fechaf">
+
+                        </div>
+                        <div class="mb-3">
+                            <h4 align="left">Nombre Paciente</h4>
+
+                            <input type="text" class="form-control" id="nombref">
+                        </div>
+
+                        <div class="mb-3">
+                            <h4 align="left">Padecimiento</h4>
+                            <input type="text" class="form-control" id="pa">
+                        </div>
+
+
+                        <div class="mb-3">
+                            <h4 align="left">Descripcion Tratamiento</h4>
+
+                            <textarea name="" id="de" cols="42%" rows="4%"></textarea>
+                        </div>
+
+                        <div>
+                            <button onclick="Factura()" type="button" class="btn btn-info">
+                                <i class="far fa-eye"></i>Vista Previa Receta</button>
+                        </div>
+                        <br>
+
+                    </form>
+                </div>
+                <div style="width: 100%; padding-right: 3px; padding-left: 40px; float: right;">
+
+                    <div>
+
+                        <center>
+                            <div>
+                            <table class="table table-bordred table-striped" , id="tablafpdf" , style="width:100%">
+                                <thead align="center">
+                                    <tr class="table-info">
+                                        <th>Fecha </th>
+                                        <th>Paciente</th>
+                                        <th>Padecimiento</th>
+                                        <th>Descripción Tratamiento</th>
+
+
+
+                                    </tr>
+                                </thead>
+
+                                <tbody id="tablaf"></tbody>
+                            </table>
+                            <br>
+                            <div>
+                                <button onclick="PDF()" type="button" class="btn btn-success">
+                                    <i class="fas fa-file-pdf"></i> Descargar Receta</button>
+                            </div>
+
+                    </div>
+
+
+                    </center>
+
+                </div>
+
+            </section>
+        </div>
+        <hr class="m-0" />
+        <!-- Skills-->
+
+        <hr class="m-0" />
+        <!-- Interests-->
+        <!-- <section class="resume-section" id="interests">
+                <div class="resume-section-content">
+                    <h2 class="mb-5">Interests</h2>
+                    <p>Apart from being a web developer, I enjoy most of my time being outdoors. In the winter, I am an avid
+                        skier and novice ice climber. During the warmer months here in Colorado, I enjoy mountain biking,
+                        free climbing, and kayaking.</p>
+                    <p class="mb-0">When forced indoors, I follow a number of sci-fi and fantasy genre movies and television
+                        shows, I am an aspiring chef, and I spend a large amount of my free time exploring the latest
+                        technology advancements in the front-end web development world.</p>
+                </div>
+            </section>
+            <hr class="m-0" />-->
+        <!-- Awards-->
+        <!-- <section class="resume-section" id="awards">
+                <div class="resume-section-content">
+                    <h2 class="mb-5">Awards & Certifications</h2>
+                    <ul class="fa-ul mb-0">
+                        <li>
+                            <span class="fa-li"><i class="fas fa-trophy text-warning"></i></span>
+                            Google Analytics Certified Developer
+                        </li>
+                        <li>
+                            <span class="fa-li"><i class="fas fa-trophy text-warning"></i></span>
+                            Mobile Web Specialist - Google Certification
+                        </li>
+                        <li>
+                            <span class="fa-li"><i class="fas fa-trophy text-warning"></i></span>
+                            1
+                            <sup>st</sup>
+                            Place - University of Colorado Boulder - Emerging Tech Competition 2009
+                        </li>
+                        <li>
+                            <span class="fa-li"><i class="fas fa-trophy text-warning"></i></span>
+                            1
+                            <sup>st</sup>
+                            Place - University of Colorado Boulder - Adobe Creative Jam 2008 (UI Design Category)
+                        </li>
+                        <li>
+                            <span class="fa-li"><i class="fas fa-trophy text-warning"></i></span>
+                            2
+                            <sup>nd</sup>
+                            Place - University of Colorado Boulder - Emerging Tech Competition 2008
+                        </li>
+                        <li>
+                            <span class="fa-li"><i class="fas fa-trophy text-warning"></i></span>
+                            1
+                            <sup>st</sup>
+                            Place - James Buchanan High School - Hackathon 2006
+                        </li>
+                        <li>
+                            <span class="fa-li"><i class="fas fa-trophy text-warning"></i></span>
+                            3
+                            <sup>rd</sup>
+                            Place - James Buchanan High School - Hackathon 2005
+                        </li>
+                    </ul>
+                </div>
+            </section> -->
+    </div>
+
+
+
+
+
+
+
+    <!--**************************FLOTANTE*********************************************-->
+
+
+    <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close">&times;</span>
+                <h3 align="center">Pacientes</h3>
+            </div>
+            <div class="modal-body">
+                <div style="width: 50%; padding-left: 20px; float: left;">
+                    <br>
+                    <form>
+                        <div class="mb-3">
+                            <label for="nombreup" class="form-label">User Name</label>
+                            <input type="text" class="form-control" id="nombreUP" placeholder="UserName">
+                        </div>
+                        <div class="mb-3">
+                            <label for="nombrep" class="form-label">Nombre</label>
+                            <input type="text" class="form-control" id="nombrep" placeholder="Nombre">
+                        </div>
+                        <div class="mb-3">
+                            <label for="apellidop" class="form-label">Apellido</label>
+                            <input type="text" class="form-control" id="apellidop" placeholder="Apellido">
+                        </div>
+                        <div class="mb-3">
+                            <label for="fechap" class="form-label">Fecha de Nacimiento</label>
+                            <input type="text" placeholder="día/mes/año" class="form-control" id="fechap">
+
+                        </div>
+                        <div class="mb-3">
+                            <label for="contra" class="form-label">Contraseña</label>
+                            <input type="password" class="form-control" id="contrap">
+                        </div>
+                        <div class="mb-3">
+                            <label for="tel" class="form-label">Telefeno</label>
+                            <input type="text" class="form-control" id="telp" placeholder="Telefono">
+                        </div>
+                        <div class="mb-3">
+                            <select name="cars" id="sexop">
+                                <option value="S">Sexo</option>
+                                <option value="M">M</option>
+                                <option value="F">F</option>
+                            </select>
+                        </div>
+
+                    </form>
+                </div>
+                <div style="width: 40%; padding-right: 25px; float: right;">
+                    <br>
+
+
+                    <center>
+                        <img src="../imagenes/logoh.jfif" width="240" height="240" />
+
+                        <img src="../imagenes/fotopas.jpg" width="240" height="240" />
+
+
+                        <button onclick="PacienteActualizar()" type="button" class="btn btn-success"><i
+                                class="fas fa-edit"></i></button>
+
+
+                    </center>
+
+                </div>
+            </div>
+            <div class="modal-footer">
+
+            </div>
+        </div>
+    </div>
+    <!--**************************FLOTANTE*********************************************-->
+
+
+
+    <!--**************************FLOTANTE*********************************************-->
+
+
+    <div id="myModal2" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close1">&times;</span>
+                <h3 align="center">Pacientes</h3>
+            </div>
+            <div class="modal-body">
+
+                <table class="table table-bordred table-striped" , id="tablaprueba" , style="width:100%">
+                    <thead align="center">
+                        <tr class="table-info">
+                            <th> Nombre </th>
+                            <th> Precio </th>
+                            <th> Cantidad </th>
+                            <th>SubTotal Producto</th>
+
+
+                        </tr>
+                    </thead>
+
+                    <tbody id="tablacitaf"></tbody>
+                </table>
+
+
+            </div>
+            <div class="modal-footer">
+
+            </div>
+        </div>
+    </div>
+
+
+
+    <div>
+
+        <!--*********************************************************************************-->
+        <!--    <div id="myModal" class="modal">
+
+        
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="close">&times;</span>
+                    <h2>Modal Header</h2>
+                </div>
+                <div class="modal-body">
+                    <select name="cars" id="sexom">
+                        <option value="0">Elegir Doctor</option>
+                    </select>
+                    <button onclick="doc()" type="button" id="btn" class="btn btn-outline-dark">Registrar</button>
+                    <button onclick="Aceptar()" type="button" id="btnaceptar" value="0"
+                        class="btn btn-outline-dark">Aceptar</button>
+                    <button onclick="Rechazar()" type="button" id="btnrechazar" value="0"
+                        class="btn btn-outline-dark">Rechazar</button>
+                </div>
+                <div class="modal-footer"> 
+
+                </div>
+            </div>
+
+        </div>-->
+
+        <!--**************************************************************************-->
+
+
+    </div>
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+        crossorigin="anonymous"></script>
+    <script src="libs/jspdf.umd.js"></script>
+    <script src="dist/jspdf.plugin.autotable.js"></script>
+
+    <script>
+        function PDF() {
+            var nom = sessionStorage.NombreD
+           var ape= sessionStorage.ApellidoD
+            var doc = new jspdf.jsPDF()
+            var body = [
+                ['Factura: UHospital', '','','Dr.',nom,ape,'Gracias por confiar en UHospital']
+               
+            ] 
+            doc.autoTable({  body: body })
+
+            doc.autoTable({ html: '#tablafpdf' })
+          
+           
+            doc.save('Receta_Doctor.pdf')
+        }
+
+        function Factura() {
+
+            var fecha = document.querySelector('#fechaf').value
+            var nombre = document.querySelector('#nombref').value
+            var pa = document.querySelector('#pa').value
+            var de = document.querySelector('#de').value
+          
+
+            var tabla = document.querySelector('#tablaf')
+            var cadena = ''
+
+
+            cadena += `<tr class="table-success", align="center">
+                            <td> ${fecha}</td>
+                            <td> ${nombre} </td>
+                            <td> ${pa} </td>
+                            <td> ${de} </td> 
+                           
+                            </tr>`
+
+
+
+
+
+            tabla.innerHTML = cadena
+            Padecimiento()
+
+        }
+
+
+        function Padecimiento(){
+            var nombre = document.querySelector('#pa').value
+            var nombre1= nombre.toLowerCase();
+            var objeto = {
+                    'Cantidad': 1,
+                    'Nombre': nombre1,
+                    
+                }
+                //  console.log(objeto)
+
+                fetch('https://backend202010025.herokuapp.com/enfermedad', {
+                    method: 'POST',
+                    body: JSON.stringify(objeto),
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Access-Control-Allow-Origin': '*',
+                    }
+                })
+
+                    .then(res => res.json())
+                    .catch(err => {
+                        console.error('Error:', err)
+                        alert("Ocurrio un error, ver la consola")
+                    })
+
+                    .then(response => {
+
+                    })
+        }
+
+
+        function EditarP() {
+            modal.style.display = "block";
+            var usuario = sessionStorage.UseD
+            console.log(usuario)
+            fetch(`https://backend202010025.herokuapp.com/Pacientes/${usuario}`, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Access-Control-Allow-Origin': '*',
+                }
+            })
+                .then(res => res.json())
+                .catch(err => {
+                    console.error('Error:', err)
+                    alert("Ocurrio un error, ver la consola")
+                })
+                .then(response => {
+                    document.querySelector('#nombreUP').value = response.NombreUsuario
+                    document.querySelector('#nombrep').value = response.Nombre
+                    document.querySelector('#apellidop').value = response.Apellido
+                    document.querySelector('#fechap').value = response.Fecha
+                    document.querySelector('#contrap').value = response.Contrasena
+                    document.querySelector('#telp').value = response.Telefono
+                    if (response.Sexo == "M") {
+                        document.querySelector('#sexop').value = "M"
+                    } else {
+                        document.querySelector('#sexop').value = "F"
+                    }
+                })
+        }
+
+        function PacienteActualizar() {
+            var usuario = sessionStorage.UseD
+            var nombreu = document.querySelector('#nombreUP').value
+            var nombre = document.querySelector('#nombrep').value
+            var apellido = document.querySelector('#apellidop').value
+            var confirmar = confirm("¿Está seguro de modificar los datos del Paciente " + nombre + " " + apellido + "?")
+            if (confirmar == true) {
+
+                var fecha = document.querySelector('#fechap').value
+                var contra = document.querySelector('#contrap').value
+                var tel = document.querySelector('#telp').value
+                var sexo = document.querySelector('#sexop').value
+                var objeto = {
+                    'Nombre': nombre,
+                    'Apellido': apellido,
+                    'Fecha': fecha,
+                    'Sexo': sexo,
+                    'NombreU': nombreu,
+                    'Contraseña': contra,
+                    'Especialidad': " ",
+                    'Teléfono': tel,
+
+
+                }
+                if (usuario == nombreu) {
+                    fetch(`https://backend202010025.herokuapp.com/Pacientes/${usuario}`, {
+                        method: 'PUT',
+                        body: JSON.stringify(objeto),
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Access-Control-Allow-Origin': '*',
+                        }
+                    })
+                        .then(res => res.json())
+                        .catch(err => {
+                            console.error('Error:', err)
+                            alert("Ocurrio un error, ver la consola")
+                        })
+                        .then(response => {
+
+                            modal.style.display = "none";
+                        })
+                } else {
+                    fetch(`https://backend202010025.herokuapp.com/Pacientes1/${usuario}`, {
+                        method: 'PUT',
+                        body: JSON.stringify(objeto),
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Access-Control-Allow-Origin': '*',
+                        }
+                    })
+                        .then(res => res.json())
+                        .catch(err => {
+                            console.error('Error:', err)
+                            alert("Ocurrio un error, ver la consola")
+                        })
+                        .then(response => {
+                            alert(response.Mensaje)
+                            if (response.Mensaje != "El Nombre de Usuario ya existe, intente otro") {
+                                sessionStorage.setItem("UseD", nombreu)
+                                modal.style.display = "none";
+                            }
+
+                        })
+                }
+            }
+        }
+        var modal = document.getElementById("myModal");
+
+        var span = document.getElementsByClassName("close")[0];
+
+        span.onclick = function () {
+            modal.style.display = "none";
+        }
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        function VerCitas(boton) {
+            modal.style.display = "block";
+            document.getElementById("btnaceptar").value = boton.value;
+            document.getElementById("btnrechazar").value = boton.value;
+
+        }
+        function Aceptar(elboton) {
+            var Idpa = elboton.value;
+            var iddoc = sessionStorage.UseD
+            var docnombre = sessionStorage.NombreD
+            var apellido = sessionStorage.ApellidoD
+            var doc = "Dr. " + docnombre + " " + apellido
+
+            var confirmar = confirm("La cita se acepta")
+            if (confirmar == true) {
+                var objeto = {
+                    'Estado': "2",
+                    'Doctor': doc,
+                    'Iddoctor': iddoc
+                }
+                fetch(`https://backend202010025.herokuapp.com/C/${Idpa}`, {
+                    method: 'PUT',
+                    body: JSON.stringify(objeto),
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Access-Control-Allow-Origin': '*',
+                    }
+                })
+                    .then(res => res.json())
+                    .catch(err => {
+                        console.error('Error:', err)
+                        alert("Ocurrio un error, ver la consola")
+                    })
+                    .then(response => {
+                        modal.style.display = "none";
+                    })
+                TablaPendientes()
+            }
+
+
+        }
+
+        function Rechazar(elboton) {
+            var Idpa = elboton.value;
+            var iddoc = sessionStorage.UseD
+            var docnombre = sessionStorage.NombreD
+            var apellido = sessionStorage.ApellidoD
+            var doc = "Dr. " + docnombre + " " + apellido
+
+
+            var confirmar = confirm("Rechazar la cita")
+            if (confirmar == true) {
+                var objeto = {
+                    'Estado': "3",
+                    'Doctor': "Rechazado",
+                    'Iddoctor': "Rechazado"
+                }
+                fetch(`https://backend202010025.herokuapp.com/C/${Idpa}`, {
+                    method: 'PUT',
+                    body: JSON.stringify(objeto),
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Access-Control-Allow-Origin': '*',
+                    }
+                })
+                    .then(res => res.json())
+                    .catch(err => {
+                        console.error('Error:', err)
+                        alert("Ocurrio un error, ver la consola")
+                    })
+                    .then(response => {
+                        modal.style.display = "none";
+                    })
+                TablaPendientes()
+            }
+
+
+        }
+
+
+
+        function TablaPendientes() {
+
+            var tabla = document.querySelector('#tablacita')
+            var cadena = ''
+            fetch('https://backend202010025.herokuapp.com/C', {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Access-Control-Allow-Origin': '*',
+                }
+            })
+                .then(res => res.json())
+                .catch(err => {
+                    console.error('Error:', err)
+                    alert("Ocurrio un error, ver la consola")
+                })
+                .then(response => {
+                    //   console.log(response);
+
+                    response.forEach(element => {
+                        if (element.Estado == "1") {
+
+                            cadena += `<tr class="table-success", align="center">
+                            <td> ${element.NombreP}  ${element.ApellidoP}</td>
+                            <td> ${element.Fecha} </td>
+                            <td> ${element.Hora} </td>
+                            <td> ${element.Motivo} </td> 
+                            <td> 
+                            <button value=${element.IdPaciente} onclick="Aceptar(this)" type="button"  class="btn btn-success">Aceptar</button>
+                            <button onclick="Rechazar(this)" type="button" id="btnrechazar" value=${element.IdPaciente} class="btn btn-danger">Rechazar</button>
+                        </td> 
+                            </tr>`
+                        }
+                    });
+                    tabla.innerHTML = cadena
+
+                })
+
+            TablaAceptados()
+        }
+
+        function TablaAceptados() {
+            var doctorxd = sessionStorage.UseD
+            var tabla = document.querySelector('#tablaacep')
+            var cadena = ''
+            fetch('https://backend202010025.herokuapp.com/C', {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Access-Control-Allow-Origin': '*',
+                }
+            })
+                .then(res => res.json())
+                .catch(err => {
+                    console.error('Error:', err)
+                    alert("Ocurrio un error, ver la consola")
+                })
+                .then(response => {
+                    //   console.log(response);
+
+                    response.forEach(element => {
+                        if (element.Iddoctor == doctorxd) {
+
+                            if (element.Estado == "4") {
+                                cadena += `<tr class="table-success", align="center">
+                            <td> ${element.NombreP}  ${element.ApellidoP}</td>
+                            <td> ${element.Fecha} </td>
+                            <td> ${element.Hora} </td>
+                            <td> ${element.Motivo} </td> 
+                            <td> <input  class="largerCheckbox" value=${element.IdPaciente} type="checkbox" id=${element.IdPaciente} onChange="completar(this)" checked>Completado</td> 
+                           
+                            </tr>`
+                            } else {
+                                cadena += `<tr class="table-success", align="center">
+                            <td> ${element.NombreP}  ${element.ApellidoP}</td>
+                            <td> ${element.Fecha} </td>
+                            <td> ${element.Hora} </td>
+                            <td> ${element.Motivo} </td> 
+                            <td> <h5>Completado</h5><input  class="largerCheckbox" value=${element.IdPaciente} type="checkbox" id=${element.IdPaciente} onChange="completar(this)"></td> 
+                           
+                            </tr>`
+                            }
+                        }
+                    });
+                    tabla.innerHTML = cadena
+
+                })
+        }
+
+        function completar(identificacion) {
+            var chexd = identificacion.value
+            var estado = document.getElementById(chexd).checked
+            console.log(estado)
+            if (estado) {
+
+                var paciente = identificacion.value
+                var iddoc = sessionStorage.UseD
+                var docnombre = sessionStorage.NombreD
+                var apellido = sessionStorage.ApellidoD
+                var doc = "Dr. " + docnombre + " " + apellido
+
+                var objeto = {
+                    'Estado': "4",
+                    'Doctor': doc,
+                    'Iddoctor': iddoc
+                }
+                fetch(`https://backend202010025.herokuapp.com/C/${paciente}`, {
+                    method: 'PUT',
+                    body: JSON.stringify(objeto),
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Access-Control-Allow-Origin': '*',
+                    }
+                })
+                    .then(res => res.json())
+                    .catch(err => {
+                        console.error('Error:', err)
+                        alert("Ocurrio un error, ver la consola")
+                    })
+                    .then(response => {
+                        modal.style.display = "none";
+                        alert("Cita Completada")
+                    })
+
+
+            } else {
+                console.log("falso")
+                var paciente = identificacion.value
+                var iddoc = sessionStorage.UseD
+                var docnombre = sessionStorage.NombreD
+                var apellido = sessionStorage.ApellidoD
+                var doc = "Dr. " + docnombre + " " + apellido
+
+                var objeto = {
+                    'Estado': "2",
+                    'Doctor': doc,
+                    'Iddoctor': iddoc
+                }
+                fetch(`https://backend202010025.herokuapp.com/C/${paciente}`, {
+                    method: 'PUT',
+                    body: JSON.stringify(objeto),
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Access-Control-Allow-Origin': '*',
+                    }
+                })
+                    .then(res => res.json())
+                    .catch(err => {
+                        console.error('Error:', err)
+                        alert("Ocurrio un error, ver la consola")
+                    })
+                    .then(response => {
+                        modal.style.display = "none";
+                        alert("Cita Sin completar")
+                    })
+
+            }
+
+
+        }
+
+        function BtnSalir() {
+            location.href = "../Iniciar.html"
+        }
+
+        var usuario1 = sessionStorage.UseD
+        var usuario2 = sessionStorage.NombreD
+        var usuario3 = sessionStorage.ApellidoD
+        document.querySelector('#nombreingreso').innerText = usuario2+ ' '+usuario3;
+        console.log(usuario1)
+        console.log(usuario2)
+        console.log(usuario3)
+    </script>
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
+    -->
+</body>
+
+</html>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 22.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 139 142" style="enable-background:new 0 0 139 142;" xml:space="preserve">
+<style type="text/css">
+	.st0{filter:url(#Adobe_OpacityMaskFilter);}
+	.st1{fill:#FFFFFF;}
+	.st2{mask:url(#mask-2_2_);fill:#00B3F0;}
+	.st3{fill:#282D33;}
+	.st4{filter:url(#Adobe_OpacityMaskFilter_1_);}
+	.st5{mask:url(#mask-4_2_);fill:#282D33;}
+</style>
+<g id="Page-1">
+	<g id="QUIENES-SOMOS" transform="translate(-908.000000, -791.000000)">
+		<g id="quienes_somos_perfil_corporativo_vision" transform="translate(908.000000, 790.000000)">
+			<g id="Group-3" transform="translate(20.049505, 0.813161)">
+				<defs>
+					<filter id="Adobe_OpacityMaskFilter" filterUnits="userSpaceOnUse" x="2.5" y="24.6" width="93" height="95.1">
+						<feColorMatrix  type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 1 0"/>
+					</filter>
+				</defs>
+				<mask maskUnits="userSpaceOnUse" x="2.5" y="24.6" width="93" height="95.1" id="mask-2_2_">
+					<g class="st0">
+						<polygon id="path-1_2_" class="st1" points="2.5,24.6 95.5,24.6 95.5,119.6 2.5,119.6 						"/>
+					</g>
+				</mask>
+				<path id="Fill-1" class="st2" d="M95.5,72.1c0,26.3-20.8,47.5-46.5,47.5c-25.7,0-46.5-21.3-46.5-47.5
+					c0-26.3,20.8-47.5,46.5-47.5C74.7,24.6,95.5,45.8,95.5,72.1"/>
+			</g>
+			<path id="Fill-4" class="st3" d="M69,45.2c-14.9,0-27.1,12.4-27.1,27.7c0,15.3,12.2,27.7,27.1,27.7s27.1-12.4,27.1-27.7
+				C96.1,57.6,84,45.2,69,45.2 M69,106.1c-17.9,0-32.4-14.9-32.4-33.2c0-18.3,14.6-33.2,32.4-33.2s32.4,14.9,32.4,33.2
+				C101.5,91.2,86.9,106.1,69,106.1"/>
+			<g id="Group-8" transform="translate(0.000000, 14.475132)">
+				<defs>
+					<filter id="Adobe_OpacityMaskFilter_1_" filterUnits="userSpaceOnUse" x="2" y="24.4" width="134.1" height="68">
+						<feColorMatrix  type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 1 0"/>
+					</filter>
+				</defs>
+				<mask maskUnits="userSpaceOnUse" x="2" y="24.4" width="134.1" height="68" id="mask-4_2_">
+					<g class="st4">
+						<polygon id="path-3_2_" class="st1" points="2,24.4 136.1,24.4 136.1,92.4 2,92.4 						"/>
+					</g>
+				</mask>
+				<path id="Fill-6" class="st5" d="M8.6,58.4C22.2,76.3,44.6,87,69,87c24.4,0,46.9-10.6,60.4-28.5C115.9,40.5,93.5,29.9,69,29.9
+					S22.2,40.5,8.6,58.4 M69,92.4C42.2,92.4,17.5,80.3,3.1,60L2,58.4l1.1-1.6c14.4-20.3,39-32.4,65.9-32.4s51.5,12.1,65.9,32.4
+					l1.1,1.6l-1.1,1.6C120.5,80.3,95.9,92.4,69,92.4"/>
+			</g>
+			<polygon id="Fill-9" class="st1" points="64.1,88.8 74,88.8 74,57 64.1,57 			"/>
+			<polygon id="Fill-11" class="st1" points="53.5,78 84.5,78 84.5,67.8 53.5,67.8 			"/>
+		</g>
+	</g>
+</g>
+</svg>

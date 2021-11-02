@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>UHospital - Login </title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900|RobotoDraft:400,100,300,500,700,900'>
+<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'><link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<!-- Form Mixin-->
+<!-- Input Mixin-->
+<!-- Button Mixin-->
+<!-- Pen Title-->
+<div class="pen-title">
+  <h1>Formulario de Login </h1><span>Regresar de nuevo a la <i class='fa fa-code'></i>  <a href='../pagina principal/index.html'>Pagina principal</a></span>
+</div>
+<!-- Form Module-->
+<div class="module form-module">
+  <div class="toggle"><i class="fa fa-times fa-pencil"></i>
+    <div class="tooltip">Tocame</div>
+  </div>
+  <div class="form">
+    <h2>Ingrese a su cuenta</h2>
+    <form onsubmit="return false;">  
+      <input id="luser" type="text" placeholder="Usuario"/>
+      <input id="lcontraseña" type="password" placeholder="Contraseña"/>
+      <button onclick="IniciarSesion()" class="button button-block"/> Iniciar sesion</button>
+    </form>
+  </div>
+  <div class="form">
+    <h2>Crea una cuenta</h2>
+    <form onsubmit="return false;">
+      <input id="nombre" type="text" placeholder="Nombre"/>
+      <input id="apellido" type="text" placeholder="Apellido"/>
+      <input id="nacimiento" type="date" placeholder="Fecha de nacimiento"/>
+      <input id="genero" type="text" placeholder="Genero"/>
+      <input id="usuario" type="text" placeholder="Nombre de usuario"/>
+      <input id="contraseña" type="password" placeholder="Contraseña"/>
+      <input id="telefono" type="tel" placeholder="Numero de telefono"/>
+      <button type="submit" onclick="CrearPaciente()" class="button button-block"/>Registrarse</button>
+      
+    </form>
+  </div>
+  
+</div>
+<!-- partial -->
+
+<script src='./funciones.js'> </script>
+
+
+
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src='https://codepen.io/andytran/pen/vLmRVp.js'></script><script  src="./script.js"></script>
+
+</body>
+</html>
