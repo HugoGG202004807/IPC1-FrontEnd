@@ -231,7 +231,7 @@
     <!-- Navigation-- onload="Tabla()"-->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
         <div class="container">
-            <a class="navbar-brand js-scroll-trigger" href="#page-top" style="color:#62acf1">UHospital</a>
+            <a class="navbar-brand js-scroll-trigger" href="#page-top" style="color:#62acf1">UBlog</a>
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
                 data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
                 aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
@@ -255,8 +255,8 @@
     <br>
     <div class="tab">
         <button class="tablinks" onclick="PanelxD(event, 'Administrador')" id="v:">Administrador</button>
-        <button class="tablinks" onclick="PanelxD(event, 'Usuarios'); Tabla()">Usuarios</button>
-        <button class="tablinks" onclick="PanelxD(event, 'Publicaciones'); Tablam()">Publicaciones</button>
+        <button class="tablinks" onclick="PanelxD(event, 'Usuarios'); TablaU()">Usuarios</button>
+        <button class="tablinks" onclick="PanelxD(event, 'Publicaciones'); TablaP()">Publicaciones</button>
         
     </div>
 
@@ -284,13 +284,14 @@
         <section class="page-section bg-primary" id="about">
             <div class="container">
                 <center>
-                    <img src="imagenes/Admin.jfif" width="190" height="210">
+                    <img src="../Administrador/imagenes/foto_aux.jpg" width="190" height="210">
+                                       
                 </center>
                 <div class="row justify-content-center">
 
                     <div class="col-lg-8 text-center">
                         <h1 class="text-white mt-0">Administrador</h1>
-                        <h2 class="text-white mt-0">Ing. Darwin</h2>
+                        <h2 class="text-white mt-0">Ing. Darwin Arevalo</h2>
                         <hr class="divider light my-4" />
                         <p class="text-white-50 mb-4">Start Bootstrap has everything you need to get your new website up
                             and running in no time! Choose one of our open source, free to download, and easy to use
@@ -344,10 +345,10 @@
 
                         <div>
                             <h4 class="text-white mt-0" align="left">Agregar Usuarios al Sistema</h4>
-                            <input class="form-control" type="file" id="aceptoP" accept=".json">
+                            <input class="form-control" type="file" id="aceptoU" accept=".json">
                             <br>
-                            <button onclick="Prueba()" type="button" class="btn btn-success" style="width: 50%;"> <i
-                                    class="fas fa-file-csv"></i> Subir Archivo</button>
+                            <button onclick="Prueba()" type="button" class="btn btn-success" style="width: 50%;"> 
+                                    Subir Archivo</button>
                         </div>
                         <br>
                         <div>
@@ -416,22 +417,22 @@
                         <br>
                         <form>
                             <div class="mb-3">
-                                <label for="apellidop" class="form-label">Email</label>
+                                <label for="emailu" class="form-label">Email</label>
                                 <input type="text" class="form-control" id="EMAIL" placeholder="Email" disabled>
                             </div>
                             <div class="mb-3">
-                                <label for="nombreup" class="form-label">Nombre</label>
+                                <label for="nameu" class="form-label">Nombre</label>
                                 <input type="text" class="form-control" id="NAME" placeholder="Name" >
                             </div>
                             
                             <div class="mb-3">
-                                <label for="apellidop" class="form-label">Username</label>
+                                <label for="usernameu" class="form-label">Username</label>
                                 <input type="text" class="form-control" id="USERNAME" placeholder="Username">
                             </div>
                                                         
                             <div class="mb-3">
-                                <label for="contra" class="form-label">Password</label>
-                                <input type="password" class="form-control" id="contrap" >
+                                <label for="passwordu" class="form-label">Password</label>
+                                <input type="password" class="form-control" id="PASSWORD" >
                             </div>
                             
                             <div class="mb-3">
@@ -453,11 +454,11 @@
 
                             <img src="../pagina principal/images/usuario.png" width="240" height="240" />
                             <h3>Usuario</h3>
-                            <button onclick="BackP()" type="button" class="btn btn-primary"><i
+                            <button onclick="BackU()" type="button" class="btn btn-primary"><i
                                     class="fas fa-arrow-circle-left"></i></button>
-                            <button onclick="PacienteEliminar()" type="button" class="btn btn-danger"><i
+                            <button onclick="UsuarioEliminar()" type="button" class="btn btn-danger"><i
                                     class="fas fa-trash-alt"></i></button>
-                            <button onclick="PacienteActualizar()" type="button" class="btn btn-success"><i
+                            <button onclick="UsuarioActualizar()" type="button" class="btn btn-success"><i
                                     class="fas fa-edit"></i></button>
 
 
@@ -490,6 +491,7 @@
                     <div class="col-lg-8 align-self-baseline">
 
                         <img src="../pagina principal/images/logo_camara.png" width="180" />
+                       
                     </div>
 
                 </div>
@@ -509,21 +511,21 @@
 
                         <div>
                             <h4 class="text-white mt-0" align="left">Agregar Publicaciones al sistema</h4>
-                            <input class="form-control" type="file" id="aceptoM" accept=".json">
+                            <input class="form-control" type="file" id="aceptoP" accept=".json">
                             <br>
-                            <button onclick="CargaM()" type="button" class="btn btn-success" style="width: 50%;"> <i
+                            <button onclick="CargaP()" type="button" class="btn btn-success" style="width: 50%;"> <i
                                     class="fas fa-file-csv"></i> Subir Archivo</button>
 
                         </div>
                         <br>
                         <div>
                             <h4 class="text-white mt-0" align="left">Generar PDF de Publicaciones</h4>
-                            <button onclick="PDFM()" class="btn btn-warning" type="button" style="width: 50%;"><i
+                            <button onclick="PDFP()" class="btn btn-warning" type="button" style="width: 50%;"><i
                                     class="far fa-file-pdf"></i> Generar PDF</button>
                                 <br>
                                 <br>
-                            <button type="button" class="btn btn-info" onclick="TopEn()" style="width: 50%;">
-                                Top 5 Enfermedades</button>
+                            <button type="button" class="btn btn-info" onclick="TopP()" style="width: 50%;">
+                                Top 5 Publicaciones</button>
 
                         </div>
                         <div class="mt-5">
@@ -543,7 +545,7 @@
                 <hr class="divider my-4" />
                 <center>
                     <div>
-                        <table class="table table-bordred table-striped" , id="tabladoc" , style="width:100%">
+                        <table class="table table-bordred table-striped" , id="tablaP" , style="width:100%">
                             <thead align="center">
                                 <tr class="table-dark">
                                     <th> Type </th>                                    
@@ -553,7 +555,7 @@
                                 </tr>
                             </thead>
 
-                            <tbody id="tablam"></tbody>
+                            <tbody id="tablaP"></tbody>
                         </table>
 
                     </div>
@@ -614,11 +616,11 @@
 
                                 <img src="../pagina principal/images/icono publicacion.png" width="240" height="240" />
                                 <h3>Publicacion</h3>
-                                <button onclick="BackM()" type="button" class="btn btn-primary"><i
+                                <button onclick="BackP()" type="button" class="btn btn-primary"><i
                                         class="fas fa-arrow-circle-left"></i></button>
-                                <button onclick="MedicoEliminar()" type="button" class="btn btn-danger"><i
+                                <button onclick="PublicacionEliminar()" type="button" class="btn btn-danger"><i
                                         class="fas fa-trash-alt"></i></button>
-                                <button onclick="MedicoActualizar()" type="button" class="btn btn-success"><i
+                                <button onclick="PublicacionActualizar()" type="button" class="btn btn-success"><i
                                         class="fas fa-edit"></i></button>
 
 
@@ -673,7 +675,7 @@
         function Prueba() {
             var cont = 0
 
-            Papa.parse(document.getElementById('aceptoP').files[0], {
+            JSON.parse(document.getElementById('aceptoU').files[0], {
                 download: true,
                 header: false,
                 complete: function (datos) {
@@ -718,7 +720,7 @@
             });
         }
 
-        function Tabla() {
+        function TablaU() {
 
             console.log("WWW")
             var tabla = document.querySelector('#detalles')
@@ -763,10 +765,10 @@
 
 
         //******************************PUBLICACIONES****************************************************
-        function Tablam() {
+        function TablaP() {
 
             console.log("WWW")
-            var tabla = document.querySelector('#tablam')
+            var tabla = document.querySelector('#tablaP')
 
             var cadena = ''
 
@@ -790,7 +792,6 @@
                         
              cadena += `<tr class="table-success", align="center">
             <td> ${element.type} </td>
-            <td> ${element.url} </td>
             <td> ${element.date} </td>
             <td> ${element.category} </td>
             <td> 
@@ -807,10 +808,10 @@
 
 
 
-        function CargaM() {
+        function CargaP() {
             var cont = 0
 
-            Papa.parse(document.getElementById('aceptoM').files[0], {
+            JSON.parse(document.getElementById('aceptoP').files[0], {
                 download: true,
                 header: false,
                 complete: function (datos) {
@@ -830,7 +831,7 @@
                         console.log(objeto)
 
 
-                        fetch('http://localhost:5000/crearusuario', {
+                        fetch('http://localhost:5000/crearpublicacion', {
                             method: 'POST',
                             body: JSON.stringify(objeto),
                             headers: {
@@ -854,16 +855,16 @@
                     }
 
                     alert("Se agregaron " + cont + " Publicaciones al Sistema")
-                    Tablam()
+                    TablaP()
 
                 }
             });
 
         }
 
-        function PDFM() {
+        function PDFP() {
             var doc = new jspdf.jsPDF()
-            doc.autoTable({ html: '#tabladoc', theme: 'grid' })
+            doc.autoTable({ html: '#tablaP', theme: 'grid' })
             doc.save('ListaPublicaciones.pdf')
         }
        
@@ -892,35 +893,21 @@
                 modal3.style.display = "none";
             }
         }
-        var modal1 = document.getElementById("myModal1");
+        var modal1 = document.getElementById("myModal1");//usuarios
         var span1 = document.getElementsByClassName("close1")[0];
 
         span1.onclick = function () {
             modal1.style.display = "none";
         }
 
-        var modal2 = document.getElementById("myModal2");
-
-
-
+        var modal2 = document.getElementById("myModal2");//publicaciones
         var span2 = document.getElementsByClassName("close2")[0];
 
         span2.onclick = function () {
             modal2.style.display = "none";
         }
 
-
-        var modal3 = document.getElementById("myModal3");
-
-
-
-        var span3 = document.getElementsByClassName("close3")[0];
-
-
-
-        span3.onclick = function () {
-            modal3.style.display = "none";
-        }
+       
         //************************************
         function verusuario(boton) {
             modal1.style.display = "block";
@@ -976,16 +963,15 @@
 
                 })
         }
-
         
-        function PacienteEliminar() {
-            var nombreu = document.querySelector('#nombreUP').value
-            var nombre = document.querySelector('#nombrep').value
-            var apellido = document.querySelector('#apellidop').value
-            var confirmar = confirm("¿Está seguro de eliminar al paciente " + nombre + " " + apellido + " del Sistema")
+        function UsuarioEliminar() {
+            var nombre = document.querySelector('#NAME').value
+            var usernombre = document.querySelector('#USERNAME').value
+            var email = document.querySelector('#EMAIL').value
+            var confirmar = confirm("¿Está seguro de eliminar el usuario " + usernombre +  " del Sistema")
             if (confirmar == true) {
 
-                fetch(`https://backend202010025.herokuapp.com/Pacientes/${nombreu}`, {
+                fetch(`http://localhost:5000/eliminarusuario/${usernombre}/${email}`, {
                     method: 'DELETE',
                     headers: {
                         'Content-Type': 'application/json',
@@ -1001,19 +987,17 @@
                         modal1.style.display = "none";
 
                     })
-                Tabla()
+                TablaU()
             }
         }
 
 
-        function MedicoEliminar() {
-            var nombreu = document.querySelector('#nombreUM').value
-            var nombre = document.querySelector('#nombrem').value
-            var apellido = document.querySelector('#apellidom').value
-            var confirmar = confirm("¿Está seguro de eliminar al paciente " + nombre + " " + apellido + " del Sistema")
+        function PublicacionEliminar() {
+            var urlx= document.querySelector('#URL')
+            var confirmar = confirm("¿Está seguro de eliminar la publicacion del Sistema")
             if (confirmar == true) {
 
-                fetch(`https://backend202010025.herokuapp.com/Pacientes/${nombreu}`, {
+                fetch(`https://backend202010025.herokuapp.com/eliminarpublicacion/${urlx}`, {
                     method: 'DELETE',
                     headers: {
                         'Content-Type': 'application/json',
@@ -1029,35 +1013,29 @@
                         modal2.style.display = "none";
 
                     })
-                Tablam()
+                TablaP()
             }
         }
 
-        function PacienteActualizar() {
-            var nombreu = document.querySelector('#nombreUP').value
-            var nombre = document.querySelector('#nombrep').value
-            var apellido = document.querySelector('#apellidop').value
-            var confirmar = confirm("¿Está seguro de modificar los datos del Paciente " + nombre + " " + apellido + "?")
+        function UsuarioActualizar() {
+            var nombre = document.querySelector('#NAME').value
+            var usernombre = document.querySelector('#USERNAME').value
+            var email = document.querySelector('#EMAIL').value
+            var confirmar = confirm("¿Está seguro de modificar los datos del usuario?")
             if (confirmar == true) {
 
 
-                var fecha = document.querySelector('#fechap').value
-                var contra = document.querySelector('#contrap').value
-                var tel = document.querySelector('#telp').value
-                var sexo = document.querySelector('#sexop').value
+                var passwordx = document.querySelector('#PASSWORD').value
+                var sexo = document.querySelector('#Gender').value
                 var objeto = {
-                    'Nombre': nombre,
-                    'Apellido': apellido,
-                    'Fecha': fecha,
-                    'Sexo': sexo,
-                    'NombreU': nombreu,
-                    'Contraseña': contra,
-                    'Especialidad': " ",
-                    'Teléfono': tel,
-
-
+                    'name': nombre,
+                    'gender': sexo,
+                    'username': usernombre,
+                    'email': email,
+                    'password': passwordx,
+                    
                 }
-                fetch(`https://backend202010025.herokuapp.com/Pacientes/${nombreu}`, {
+                fetch(`https://backend202010025.herokuapp.com/Pacientes/${email}`, {
                     method: 'PUT',
                     body: JSON.stringify(objeto),
                     headers: {
@@ -1077,32 +1055,24 @@
             }
         }
 
-        function MedicoActualizar() {
-            var nombreu = document.querySelector('#nombreUM').value
-            var nombre = document.querySelector('#nombrem').value
-            var apellido = document.querySelector('#apellidom').value
-            var confirmar = confirm("¿Está seguro de modificar los datos del Paciente " + nombre + " " + apellido + "?")
+        function PublicacionActualizar() {
+            var url=document.querySelector("#URL")
+            var confirmar = confirm("¿Está seguro de modificar los datos de la publicacion?")
             if (confirmar == true) {
 
 
-                var fecha = document.querySelector('#fecham').value
-                var contra = document.querySelector('#contram').value
-                var tel = document.querySelector('#telm').value
-                var sexo = document.querySelector('#sexom').value
-                var especialidad = document.querySelector('#especialidad').value
+                var type = document.querySelector('#TYPE').value
+                var date = document.querySelector('#DATE').value
+                var category = document.querySelector('#CATEGORY').value
                 var objeto = {
-                    'Nombre': nombre,
-                    'Apellido': apellido,
-                    'Fecha': fecha,
-                    'Sexo': sexo,
-                    'NombreU': nombreu,
-                    'Contraseña': contra,
-                    'Especialidad': especialidad,
-                    'Teléfono': tel,
+                    'type': type,
+                    'url': url,
+                    'date': date,
+                    'category': category,
 
 
                 }
-                fetch(`https://backend202010025.herokuapp.com/Pacientes/${nombreu}`, {
+                fetch(`http://localhost:5000/Pacientes/${url}`, {
                     method: 'PUT',
                     body: JSON.stringify(objeto),
                     headers: {
@@ -1118,107 +1088,27 @@
                     .then(response => {
                         modal2.style.display = "none";
                     })
-                Tablam()
+                TablaP()
             }
         }
 
 
 
-        function BackP() {
+        function BackU() {
             modal1.style.display = "none";
         }
 
-        function BackM() {
+        function BackP() {
             modal2.style.display = "none";
         }
 
-        function BackE() {
-            modal3.style.display = "none";
-        }
-
-        function BackME() {
-            modal.style.display = "none";
-        }
-
+        
         //-----------------------------------------------------------------
 
         function BtnSalir() {
-            location.href = "../pagina principal/index"
+            location.href = "../login/login.html"
+            
         }
-
-      var  TopEnfermerdad=[]
-        function TopEn(){
-            fetch('https://backend202010025.herokuapp.com/enfermedad', {
-                method: 'GET',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Access-Control-Allow-Origin': '*',
-                }
-            })
-                .then(res => res.json())
-                .catch(err => {
-                    console.error('Error:', err)
-                    alert("Ocurrio un error, ver la consola")
-                })
-                .then(response => {
-                    //  console.log(response);
-                    response.forEach(element => {
-                        TopEnfermerdad.push(element.Cantidad, element.Nombre)
-                        // console.log(MedicienaToo)
-
-                    });
-                    OrdenarTop1()
-                })
-        }
-
-        function OrdenarTop1() {
-            var auxiliar = 0;
-            var auxiliar1 = "";
-            for (i = 0; i <  TopEnfermerdad.length - 1; i += 2) {
-                for (j = i; j <  TopEnfermerdad.length; j += 2) {
-                    if ( TopEnfermerdad[i] <  TopEnfermerdad[j]) {
-                        auxiliar =  TopEnfermerdad[i];
-                        TopEnfermerdad[i] =  TopEnfermerdad[j];
-                        TopEnfermerdad[j] = auxiliar;
-
-                        auxiliar1 =  TopEnfermerdad[i + 1];
-                        TopEnfermerdad[i + 1] =  TopEnfermerdad[j + 1];
-                        TopEnfermerdad[j + 1] = auxiliar1;
-                    }
-                }
-            }
-            var tabla = document.querySelector('#ta')
-
-            var cadena = ''
-           
-                for (i = 0; i <  TopEnfermerdad.length; i += 2) {
-                    cadena += `<tr class="table-success", align="center">
-                    <td> ${ TopEnfermerdad[i]} </td>
-                    <td> ${ TopEnfermerdad[i + 1]} </td>
-                   
-                        
-                    </tr>`
-                }
-        
-
-            tabla.innerHTML = cadena
-            console.log( TopEnfermerdad)
-
-
-            var doc = new jspdf.jsPDF()
-            doc.setFontSize(20);
-            doc.text("Enfermedades mas comunes", 40, 10);
-
-
-            doc.autoTable({ html: '#topme' })
-
-            doc.save('TopEnfermedades.pdf')
-
-            TopEnfermerdad = []
-        }
-
-
-
 
     </script>
 <!--***************************************************************************************-->

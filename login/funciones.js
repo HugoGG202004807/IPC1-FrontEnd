@@ -90,7 +90,7 @@ function IniciarSesion(){
     let pass= document.getElementById("lcontraseña");
 
     if(user.value=="admin" && pass.value=="1234"){
-        window.location.href='../inicio_admin.html' 
+        window.location.href='../Administrador/inicio_admin.html' 
         alert('Bienvenido auxiliar')
     }else{
         alert('Usuario y/o contraseña incorrectos')
