@@ -715,11 +715,11 @@
                             })
                     }
                     alert("Se agregaron " + cont + " Usuarios al Sistema")
-                    Tabla()
+                    TablaU()
                 }
             });
         }
-
+        
         function TablaU() {
 
             console.log("WWW")
@@ -880,18 +880,15 @@
         }
 
         window.onclick = function (event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
+            if (event.target == modal1x) {
+                let modal1x = document.getElementById("myModal1");//usuarios
+                modal1x.style.display = "none";
             }
-            if (event.target == modal1) {
-                modal1.style.display = "none";
+            if (event.target == modal2x) {
+                var modal2x = document.getElementById("myModal2");//usuarios
+                modal2x.style.display = "none";
             }
-            if (event.target == modal2) {
-                modal2.style.display = "none";
-            }
-            if (event.target == modal3) {
-                modal3.style.display = "none";
-            }
+            
         }
         var modal1 = document.getElementById("myModal1");//usuarios
         var span1 = document.getElementsByClassName("close1")[0];
@@ -910,10 +907,11 @@
        
         //************************************
         function verusuario(boton) {
-            modal1.style.display = "block";
+            let modal1x=document.getElementById("myModal1")
+            modal1x.style.display = "block";
             var email = boton.value
             console.log(email)
-            fetch(`http://localhost:5000/obtenerusuario/${email}`, {
+            fetch(`http://localhost:5000/obtenerusuario/${email}`,{
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -940,7 +938,8 @@
         }
 
         function verpublicacion(boton) {
-            modal2.style.display = "block";
+            let modal2x=document.getElementById("myModal2")
+            modal2x.style.display = "block";
             var url = boton.value
             console.log(url)
             fetch(`http://localhost:5000/obtenerpublicacion/${url}`, {
@@ -965,6 +964,7 @@
         }
         
         function UsuarioEliminar() {
+            let modal1x=document.getElementById("myModal1")
             var nombre = document.querySelector('#NAME').value
             var usernombre = document.querySelector('#USERNAME').value
             var email = document.querySelector('#EMAIL').value
@@ -984,7 +984,7 @@
                         alert("Ocurrio un error, ver la consola")
                     })
                     .then(response => {
-                        modal1.style.display = "none";
+                        modal1x.style.display = "none";
 
                     })
                 TablaU()
@@ -1018,6 +1018,7 @@
         }
 
         function UsuarioActualizar() {
+            let modal1x=document.getElementById("myModal1")
             var nombre = document.querySelector('#NAME').value
             var usernombre = document.querySelector('#USERNAME').value
             var email = document.querySelector('#EMAIL').value
@@ -1026,7 +1027,7 @@
 
 
                 var passwordx = document.querySelector('#PASSWORD').value
-                var sexo = document.querySelector('#Gender').value
+                var sexo = document.querySelector('#GENDER').value
                 var objeto = {
                     'name': nombre,
                     'gender': sexo,
@@ -1035,7 +1036,7 @@
                     'password': passwordx,
                     
                 }
-                fetch(`https://backend202010025.herokuapp.com/Pacientes/${email}`, {
+                fetch(`http://localhost:5000/actualizarusuario/${email}`, {
                     method: 'PUT',
                     body: JSON.stringify(objeto),
                     headers: {
@@ -1049,9 +1050,9 @@
                         alert("Ocurrio un error, ver la consola")
                     })
                     .then(response => {
-                        modal1.style.display = "none";
+                        modal1x.style.display = "none";
                     })
-                Tabla()
+                TablaU()
             }
         }
 
@@ -1072,7 +1073,7 @@
 
 
                 }
-                fetch(`http://localhost:5000/Pacientes/${url}`, {
+                fetch(`http://localhost:5000/actualizarpublicacion/${url}`, {
                     method: 'PUT',
                     body: JSON.stringify(objeto),
                     headers: {
@@ -1095,11 +1096,13 @@
 
 
         function BackU() {
-            modal1.style.display = "none";
+            let modal1x=document.getElementById("myModal1")
+            modal1x.style.display = "none";
         }
 
         function BackP() {
-            modal2.style.display = "none";
+            let modal2x=document.getElementById("myModal2")
+            modal2x.style.display = "none";
         }
 
         
