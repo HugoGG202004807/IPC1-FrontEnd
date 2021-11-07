@@ -13,44 +13,6 @@ function createHeaders(keys) {
   return result;
 }
 
-function convertirdata(libro){
-  var data ={
-    "Titulo":libro.titulo,
-    "Autor":libro.autor,
-    "Descripcion":libro.descripcion
-  }
-
-  return data
-
-}
-
-function crearpdf(){
-  
-  fetch('http://34.67.203.10:5000/obtenerlibros')
-  .then(response => response.json())
-  .then(data=>{
-    //Declarando los headers
-    let headers = createHeaders([
-      "Titulo",
-      "Autor",
-      "Descripcion"
-    ]);
-    // Insertamos la data
-    let datos=[]
-    for(let i =0;i<data.length;i++){
-      datos.push(Object.assign({},convertirdata(data[i])))
-    }
-    console.log(datos)
-    var contentJsPdf = {
-      headers,
-      datos
-  };
-    var doc = new jsPDF({ putOnlyUsedFonts: true, orientation: "landscape" });
-    doc.table(75, 1, datos, headers, { autoSize: false });
-    doc.save("ejemplo.pdf")
-  })
-}
-
 
 //Declaracion de Headers
 
@@ -73,7 +35,7 @@ function cargar(){
             }
 
             console.log(JSON.stringify(cuerpo))
-            fetch('http://localhost:5000/carga', {
+            fetch('https://backend-ipc.herokuapp.com/carga', {
             method: 'POST',
             headers,
             body: JSON.stringify(cuerpo),
@@ -94,9 +56,7 @@ function cargar(){
     }
 }
 
-
-
-function eliminarpublicacion(url){
+function eliminarpublicacion(libro,url){
     console.log(url)
     
     fetch('https://backend-ipc.herokuapp.com/eliminarpublicacion/'+url,{
@@ -139,3 +99,58 @@ function agregarlibro(){
   });
 
 }
+function actualizar(){
+    document.getElementById("cardsc").innerHTML = '';
+    let text="";
+    fetch('https://backend-ipc.herokuapp.com/obtenerpublicaciones')
+    .then(response => response.json())
+    .then(data =>{
+        var i;
+        for(i=0;i<data.length;i++){
+            text+= `<br>
+                    <div class="col-sm-3 col-md-3 col-lg-3""  style="margin-top: 25px;float: left;">
+                    <div class="card bg-light" style="width: auto;">
+                    <img class="card-img-top" src="${data[i].url}" alt="Card image cap">
+                    <div class="card-body">
+                        <h4 class="card-title">${data[i].type}</h4>
+                        <h5 class="card-title">${data[i].category}</h5>
+                        <p class="card-text">${data[i].date}</p>
+                        <button href="#" class="btn btn btn-danger" onclick="eliminarpublicacion('${data[i].url}')">Eliminar</button>
+                    </div>
+                    </div>
+                    </div>
+                    <br>`
+            console.log(data[i].type,'prueba')
+        }
+        document.getElementById("cardsc").innerHTML = text;
+    });
+  
+  
+  }
+
+  // Carga de Usuarios
+
+  let text="";
+  fetch('https://backend-ipc.herokuapp.com/obtenerpublicaciones')
+  .then(response => response.json())
+  .then(data =>{
+      var i;
+      for(i=0;i<data.length;i++){
+          text+= `<br>
+                  <div class="col-sm-3 col-md-3 col-lg-3" style="margin-top: 25px;border-style: dotted;">
+                  <div class="card bg-light" style="width: auto;">
+                  <img class="card-img-top" src="${data[i].imagen}" alt="Card image cap">
+                  <div class="card-body">
+                      <h4 class="card-title">${data[i].titulo}</h4>
+                      <h5 class="card-title">${data[i].autor}</h5>
+                      <p class="card-text">${data[i].descripcion}</p>
+                      <button href="#" class="btn btn btn-danger" onclick="eliminarpublicacion('${data[i].url}')">Eliminar</button>
+                  </div>
+                  </div>
+                  </div>
+                  <br>`
+          console.log(data[i].type,'prueba')
+      }
+      document.getElementById("cardsc").innerHTML = text;
+  });
+
