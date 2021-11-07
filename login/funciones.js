@@ -89,40 +89,34 @@ function IniciarSesion(){
     let user= document.getElementById("luser");
     let pass= document.getElementById("lcontraseña");
 
-    if(user.value=="admin" && pass.value=="1234"){
-        window.location.href='../Administrador/inicio_admin.html' 
-        alert('Bienvenido auxiliar')
-    }else{
-        alert('Usuario y/o contraseña incorrectos')
-        pass.value='';
-        user.value='';
-    } 
-
- /* fetch(`https://backend-ipc.herokuapp.com/login/${user.value}/${pass.value}`)
+    if(user.value=="admin" && pass.value=="admin@ipc1"){
+        window.location.href='../Administrador/inicio_admin.html'       
+        alert('Bienvenido Ing. Darwin Arevalo')
+    }
+    else {
+        fetch(`https://backend-ipc.herokuapp.com/login/${user.value}/${pass.value}`)
     .then(response => response.json())
+    .catch(err => {
+        console.error('Error:', err)
+        alert("Ocurrio un error, ver la consola")
+    })
     // Manejando la data
     .then(data => {
-        console.log(data.nombre)
-        if(user.value=="admin" && pass.value=="1234"){
-            window.location.href='../inicio_admin.html'       
-        }
-        if(data.nombre=="false"){
+        console.log(data.name)
+        
+        if(data.name=="false"){
             alert('Verifique sus Credenciales')
             pass.value='';
             usuario.value='';
-        }else{
-            alert(`Bienvenido ${data.nombre}`)
-            window.location.href='../Pagina/inicio.html'
+        }else {
+            alert(`Bienvenido ${data.name}`)
+            window.location.href='../Pagina_Usuario/Inicio.html'
         }
 
-      if(user.value=="admin" && pass.value=="1234"){
-        window.location.href='../inicio_admin.html'       
-    }else{
-        alert('Usuario y/o contraseña incorrectos')
-        pass.value='';
-        user.value='';
-    }*/
+      }
+   )
+    }
+  
 }
-  //  )}
     
 

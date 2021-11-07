@@ -347,7 +347,7 @@
                             <h4 class="text-white mt-0" align="left">Agregar Usuarios al Sistema</h4>
                             <input class="form-control" type="file" id="aceptoU" accept=".json">
                             <br>
-                            <button onclick="Prueba()" type="button" class="btn btn-success" style="width: 50%;"> 
+                            <button onclick="cargar()" type="button" class="btn btn-success" style="width: 50%;"> 
                                     Subir Archivo</button>
                         </div>
                         <br>
@@ -691,11 +691,8 @@
                             'password': objeto1[4]
 
                         }
-
                         console.log(objeto)
-
-
-                        fetch('http://localhost:5000/crearusuario', {
+                        fetch('https://backend-ipc.herokuapp.com/crearusuario', {
                             method: 'POST',
                             body: JSON.stringify(objeto),
                             headers: {
@@ -720,12 +717,45 @@
             });
         }
         
+        function cargar(){
+        let file = document.getElementById("aceptoU").files[0];
+        let formData= new FormData();
+        formData.append('data',file)
+    if (file) {
+        let reader = new FileReader();
+        reader.readAsText(file, "UTF-8")
+        reader.onload = function (evt) {
+            let cuerpo = {
+                data:formData 
+                // data:evt.target.result                 
+            }
+            console.log(JSON.stringify(cuerpo))
+            fetch('https://backend-ipc.herokuapp.com/carga', {
+            method: 'POST',
+            headers: {
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*',
+            },
+            body: formData,
+            })
+            .then(response => response.json())
+            .then(result => {
+                console.log('Success:', result);
+                TablaU()
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        }
+        reader.onerror = function (evt) {            
+        }
+    }
+}
         function TablaU() {
-
             console.log("WWW")
             var tabla = document.querySelector('#detalles')
             var cadena = ''
-            fetch('http://localhost:5000/obtenerusuarios', {
+            fetch('https://backend-ipc.herokuapp.com/obtenerusuarios', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -773,7 +803,7 @@
             var cadena = ''
 
 
-            fetch('http://localhost:5000/obtenerpublicaciones', {
+            fetch('https://backend-ipc.herokuapp.com/obtenerpublicaciones', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -831,7 +861,7 @@
                         console.log(objeto)
 
 
-                        fetch('http://localhost:5000/crearpublicacion', {
+                        fetch('https://backend-ipc.herokuapp.com/crearpublicacion', {
                             method: 'POST',
                             body: JSON.stringify(objeto),
                             headers: {
@@ -885,7 +915,7 @@
                 modal1x.style.display = "none";
             }
             if (event.target == modal2x) {
-                var modal2x = document.getElementById("myModal2");//usuarios
+                var modal2x = document.getElementById("myModal2");//publicaciones
                 modal2x.style.display = "none";
             }
             
@@ -894,14 +924,16 @@
         var span1 = document.getElementsByClassName("close1")[0];
 
         span1.onclick = function () {
-            modal1.style.display = "none";
+            let modal1x = document.getElementById("myModal1");//usuarios
+                modal1x.style.display = "none";            
         }
 
         var modal2 = document.getElementById("myModal2");//publicaciones
         var span2 = document.getElementsByClassName("close2")[0];
 
         span2.onclick = function () {
-            modal2.style.display = "none";
+            let modal2x = document.getElementById("myModal2");//usuarios
+                modal2x.style.display = "none";
         }
 
        
@@ -911,7 +943,7 @@
             modal1x.style.display = "block";
             var email = boton.value
             console.log(email)
-            fetch(`http://localhost:5000/obtenerusuario/${email}`,{
+            fetch(`https://backend-ipc.herokuapp.com/obtenerusuario/${email}`,{
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -942,7 +974,7 @@
             modal2x.style.display = "block";
             var url = boton.value
             console.log(url)
-            fetch(`http://localhost:5000/obtenerpublicacion/${url}`, {
+            fetch(`https://backend-ipc.herokuapp.com/obtenerpublicacion/${url}`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -971,7 +1003,7 @@
             var confirmar = confirm("¿Está seguro de eliminar el usuario " + usernombre +  " del Sistema")
             if (confirmar == true) {
 
-                fetch(`http://localhost:5000/eliminarusuario/${usernombre}/${email}`, {
+                fetch(`https://backend-ipc.herokuapp.com/eliminarusuario/${usernombre}/${email}`, {
                     method: 'DELETE',
                     headers: {
                         'Content-Type': 'application/json',
@@ -1036,7 +1068,7 @@
                     'password': passwordx,
                     
                 }
-                fetch(`http://localhost:5000/actualizarusuario/${email}`, {
+                fetch(`https://backend-ipc.herokuapp.com/actualizarusuario/${email}`, {
                     method: 'PUT',
                     body: JSON.stringify(objeto),
                     headers: {
@@ -1073,7 +1105,7 @@
 
 
                 }
-                fetch(`http://localhost:5000/actualizarpublicacion/${url}`, {
+                fetch(`https://backend-ipc.herokuapp.com/actualizarpublicacion/${url}`, {
                     method: 'PUT',
                     body: JSON.stringify(objeto),
                     headers: {
